@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<?import javafx.scene.control.TextField?>
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pb.Controller">
+    <children>
+        <MenuBar fx:id="menuBar">
+            <Menu mnemonicParsing="false" text="Plik">
+                <items>
+                    <MenuItem fx:id="importFile" mnemonicParsing="false" onAction="#importFile" text="Otwórz" />
+                    <MenuItem fx:id="saveFile" mnemonicParsing="false" onAction="#saveFile" text="Zapisz"/>
+                </items>
+            </Menu>
+        </MenuBar>
+      <HBox alignment="CENTER" prefHeight="20.0" prefWidth="900.0" spacing="420.0">
+         <children>
+            <Label text="Edycja" textAlignment="CENTER" />
+            <Label text="Oryginał" textAlignment="CENTER" />
+         </children>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </HBox>
+        <HBox prefHeight="450.0" prefWidth="900.0">
+            <children>
+                <Separator prefWidth="20.0" />
+                <ScrollPane prefHeight="450.0" prefWidth="420.0">
+                    <content>
+                        <ImageView fx:id="editedImageView" fitHeight="450.0" fitWidth="420.0" pickOnBounds="true" preserveRatio="true" />
+                    </content>
+                </ScrollPane>
+                <Separator prefWidth="20.0" />
+                <ScrollPane prefHeight="450.0" prefWidth="420.0">
+                    <content>
+                        <ImageView fx:id="originalImageView" fitHeight="450.0" fitWidth="420.0" pickOnBounds="true" onMouseClicked="#choosePixel" onMouseMoved="#getMousePosition" preserveRatio="true" />
+                    </content>
+                </ScrollPane>
+                <Separator prefWidth="20.0" />
+            </children>
+        </HBox>
+        <Separator orientation="VERTICAL" prefHeight="20.0" />
+        <Slider fx:id="zoomSlider" majorTickUnit="2.0" max="10.0" maxHeight="20" maxWidth="400" min="0.1" minorTickCount="1" onMouseClicked="#zoomImage" onMouseDragged="#zoomImage" prefHeight="30.0" prefWidth="300.0" showTickLabels="true" showTickMarks="true" value="1.0" />
+        <Separator orientation="VERTICAL" prefHeight="35.0" />
+        <HBox alignment="CENTER_LEFT" maxHeight="50" prefHeight="140.0" prefWidth="860.0">
+         <children>
+             <Separator prefWidth="20.0" />
+             <HBox prefHeight="150.0" prefWidth="420.0" spacing="15.0">
+                <children>
+                    <TextField fx:id="pixelX" promptText="X" />
+                    <TextField fx:id="pixelY" promptText="Y" />
+                    <TextField fx:id="pixelRed" promptText="R" />
+                    <TextField fx:id="pixelGreen" promptText="G" />
+                    <TextField fx:id="pixelBlue" promptText="B" />
+                </children>
+             </HBox>
+             <Separator prefWidth="20.0" />
+             <VBox prefHeight="150.0" prefWidth="420.0">
+               <children>
+                   <HBox alignment="TOP_CENTER" prefHeight="20.0" prefWidth="200.0" spacing="15.0">
+                       <children>
+                           <Label fx:id="positionXLabel">
+                           <font>
+                              <Font size="18.0" />
+                           </font></Label>
+                           <Label fx:id="positionYLabel">
+                           <font>
+                              <Font size="18.0" />
+                           </font></Label>
+                           <Separator prefWidth="20.0" />
+                           <Label fx:id="rgbLabel">
+                           <font>
+                              <Font size="18.0" />
+                           </font></Label>
+                       </children>
+                   </HBox>
+               </children></VBox>
+             <Separator prefWidth="20.0" />
+         </children>
+      </HBox>
+      <Button fx:id="saveBtn" mnemonicParsing="false" onAction="#setNewRGB" text="Wykonaj" textAlignment="CENTER" textFill="#4ec1e8">
+         <font>
+            <Font size="14.0" />
+         </font></Button>
+    </children>
+</VBox>
