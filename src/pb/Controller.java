@@ -73,11 +73,20 @@ public class Controller {
 
     public void create(Image originalImage)
     {
+
         final CategoryAxis xAxis = new CategoryAxis();
         final NumberAxis yAxis = new NumberAxis();
         final LineChart<String, Number> chartHistogram
                 = new LineChart<>(xAxis, yAxis);
         chartHistogram.setCreateSymbols(false);
+        HBox hBox = new HBox();
+        hBox.getChildren().addAll(chartHistogram);
+
+        VBox vBox = new VBox();
+        vBox.getChildren().addAll(hBox);
+
+        StackPane root = new StackPane();
+        root.getChildren().add(vBox);
         chartHistogram.getData().clear();
         ImageHistogram imageHistogram = new ImageHistogram(originalImage);
         if(imageHistogram.isSuccess()){
@@ -88,7 +97,7 @@ public class Controller {
                     imageHistogram.getSeriesBlue());
         }
     }
-    
+
 
     @FXML
     public void importFile(ActionEvent event) {

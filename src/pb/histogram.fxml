@@ -1,20 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.chart.CategoryAxis?>
-<?import javafx.scene.chart.LineChart?>
-<?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.layout.AnchorPane?>
 
 
 <AnchorPane prefHeight="700.0" prefWidth="900.0" style="-fx-background-color: #FFC0CB;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pb.Controller">
-   <children>
-      <LineChart fx:id="chartHistogram" layoutX="14.0" layoutY="21.0">
-        <xAxis>
-          <CategoryAxis side="BOTTOM" />
-        </xAxis>
-        <yAxis>
-          <NumberAxis side="LEFT" />
-        </yAxis>
-      </LineChart>
-   </children>
+
+    
 </AnchorPane>
