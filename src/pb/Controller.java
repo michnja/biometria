@@ -48,8 +48,7 @@ public class Controller {
     private ImageView originalImageView;
     @FXML
     private ImageView editedImageView;
-    @FXML
-    private ImageView histogramView;
+
     @FXML
     private Slider zoomSlider;
     @FXML
@@ -58,46 +57,39 @@ public class Controller {
     public TextField pixelX, pixelY, pixelRed, pixelGreen, pixelBlue;
     @FXML
     public Button saveBtn, histogramBtn;
-
-
+    @FXML
+    private Pane paneView;
 
     @FXML
-    public void doHistogram(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("histogram.fxml"));
-        create(originalImage);
-        Stage primaryStage = new Stage();
-        primaryStage.setTitle("Biometria excercise1");
-        primaryStage.setScene(new Scene(root, 900, 900));
-        primaryStage.show();
-    }
-
-    public void create(Image originalImage)
+    public void loadData()
     {
-
-        final CategoryAxis xAxis = new CategoryAxis();
-        final NumberAxis yAxis = new NumberAxis();
-        final LineChart<String, Number> chartHistogram
-                = new LineChart<>(xAxis, yAxis);
-        chartHistogram.setCreateSymbols(false);
-        HBox hBox = new HBox();
-        hBox.getChildren().addAll(chartHistogram);
-
-        VBox vBox = new VBox();
-        vBox.getChildren().addAll(hBox);
-
-        StackPane root = new StackPane();
-        root.getChildren().add(vBox);
-        chartHistogram.getData().clear();
         ImageHistogram imageHistogram = new ImageHistogram(originalImage);
+        paneView.getChildren().clear();
+        CategoryAxis xAxis = new CategoryAxis();
+        xAxis.setLabel("RGB");
+        NumberAxis yAxis = new NumberAxis();
+        yAxis.setLabel("Value");
+        LineChart<String,Number> histogramChart = new LineChart(xAxis,yAxis);
+        histogramChart.setTitle("HISTOGRAM");
+        XYChart.Series series = new XYChart.Series();
+        series.setName("Colors");
         if(imageHistogram.isSuccess()){
-            chartHistogram.getData().addAll(
+            histogramChart.getData().addAll(
                     //imageHistogram.getSeriesAlpha(),
                     imageHistogram.getSeriesRed(),
                     imageHistogram.getSeriesGreen(),
                     imageHistogram.getSeriesBlue());
         }
+        histogramChart.setMaxWidth(300);
+        histogramChart.setMaxHeight(300);
+        paneView.getChildren().add(histogramChart);
+
     }
 
+    @FXML
+    public void doHistogram(ActionEvent event) throws IOException {
+        loadData();
+    }
 
     @FXML
     public void importFile(ActionEvent event) {

@@ -12,10 +12,11 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" style="-fx-background-color: #FFC0CB;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pb.Controller">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" style="-fx-background-color: #FFC0CB;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pb.Controller">
     <children>
         <MenuBar fx:id="menuBar" style="-fx-background-color: #FFB6C1;">
             <Menu mnemonicParsing="false" text="File">
@@ -50,6 +51,7 @@
                     </content>
                 </ScrollPane>
                 <Separator prefWidth="20.0" />
+            <Pane fx:id="paneView" prefHeight="200.0" prefWidth="200.0" />
             </children>
         </HBox>
         <Separator orientation="VERTICAL" prefHeight="20.0" />
