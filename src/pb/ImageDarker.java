@@ -49,10 +49,13 @@ public class ImageDarker {
 
             }
         }
+        System.out.println("brightestREdd:" + brightestRed + "brightestGreen:" + brightestGreen );
 
         brightestRed = 255 / Math.pow(brightestRed,2);
         brightestBlue = 255 / Math.pow(brightestBlue,2);
         brightestGreen = 255 / Math.pow(brightestGreen,2);
+
+
 
         for(int i=0; i<256; i++)
         {
@@ -65,9 +68,12 @@ public class ImageDarker {
             for (int x = 0; x < copyImage.getWidth(); x++) {
 
                 Color color =  copyImage.getPixelReader().getColor(x,y);
-                int b = (int) color.getBlue();
-                int r = (int) color.getRed();
-                int g = (int) color.getGreen();
+
+                int r = (int) red[(int) color.getRed()];
+                int g = (int) green[(int) color.getGreen()];
+                int b = (int) blue[(int) color.getBlue()];
+
+                System.out.println("red" + r + "green:" + g );
 
                 Color newColor = Color.rgb(r,g,b);
                 pw.setColor(x,y,newColor);

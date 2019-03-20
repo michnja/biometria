@@ -48,7 +48,6 @@ public class Controller {
     private ImageView originalImageView;
     @FXML
     private ImageView editedImageView;
-
     @FXML
     private Slider zoomSlider;
     @FXML

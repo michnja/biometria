@@ -51,7 +51,19 @@
                     </content>
                 </ScrollPane>
                 <Separator prefWidth="20.0" />
-            <Pane fx:id="paneView" prefHeight="200.0" prefWidth="200.0" />
+            <Pane fx:id="paneView" prefHeight="200.0" prefWidth="200.0">
+               <children>
+                    <Button fx:id="darkerBtn" layoutX="-2.0" layoutY="159.0" mnemonicParsing="false" onAction="#doDarker" prefHeight="30.0" prefWidth="85.0" text="Dark " textAlignment="CENTER">
+                        <font>
+                            <Font size="14.0" />
+                        </font>
+                  </Button>
+                    <Button fx:id="histogramBtn" layoutY="195.0" mnemonicParsing="false" onAction="#doHistogram" text="Histogram" textAlignment="CENTER">
+                        <font>
+                            <Font size="14.0" />
+                        </font>
+                  </Button>
+               </children></Pane>
             </children>
         </HBox>
         <Separator orientation="VERTICAL" prefHeight="20.0" />
@@ -98,13 +110,5 @@
          <font>
             <Font size="14.0" />
          </font></Button>
-        <Button fx:id="histogramBtn" mnemonicParsing="false" onAction="#doHistogram" text="histogram" textAlignment="CENTER">
-            <font>
-                <Font size="14.0" />
-            </font></Button>
-        <Button fx:id="darkerBtn" mnemonicParsing="false" onAction="#doDarker" text="histogram" textAlignment="CENTER">
-            <font>
-                <Font size="14.0" />
-            </font></Button>
     </children>
 </VBox>

@@ -7,6 +7,8 @@ import javafx.scene.chart.XYChart;
 import javafx.scene.image.Image;
 import javafx.scene.image.PixelReader;
 
+import java.awt.*;
+
 public class ImageHistogram {
     private Image image;
 
@@ -93,6 +95,8 @@ public class ImageHistogram {
     public XYChart.Series getSeriesBlue() {
         return seriesBlue;
     }
+
+
 
 
 }
