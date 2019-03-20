@@ -92,6 +92,15 @@ public class Controller {
     }
 
     @FXML
+    public void doDarker(ActionEvent event)
+    {
+        Image i = editedImageView.getImage();
+        ImageDarker imageDarker = new ImageDarker((WritableImage)i);
+        imageDarker.makeDarker();
+        editedImageView.setImage(i);
+    }
+
+    @FXML
     public void importFile(ActionEvent event) {
 
         FileChooser fileChooser = new FileChooser(); //filechooser dialog i mozliwe w nim rozszerzenia do plikow
@@ -111,6 +120,7 @@ public class Controller {
             } catch (IOException e) {
                 System.out.println("Blad wczytywania pliku");
             }
+
             Image image = SwingFXUtils.toFXImage(img, null); //konwrsja typow z swinga do FX
             originalW = image.getWidth();
             originalH = image.getHeight();
