@@ -43,7 +43,6 @@ public class ImageDarker {
 
             }
         }
-        System.out.println("brightestREdd:" + brightestRed + "brightestGreen:" + brightestGreen);
 
         brightestRed = 255 / Math.pow(brightestRed, 2);
         brightestBlue = 255 / Math.pow(brightestBlue, 2);
@@ -64,8 +63,6 @@ public class ImageDarker {
                 int r = (int) red[color.getRed()];
                 int g = (int) green[color.getGreen()];
                 int b = (int) blue[color.getBlue()];
-
-                System.out.println("red" + r + "green:" + g);
 
                 Color newColor = Color.rgb(r, g, b);
                 pw.setColor(x, y, newColor);
